@@ -4,9 +4,11 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.covid19.model.CaseCovid;
+import com.example.covid19.room.DataCovid;
 
 import java.util.List;
 
@@ -18,16 +20,20 @@ public class CaseCovidViewModel extends AndroidViewModel {
 
     public CaseCovidViewModel(@NonNull Application application) {
         super(application);
-        caseCovidRepository = new CaseCovidRepository(application);
-        allCaseCovid = caseCovidRepository.getCaseCovidFromNetwork();
-        //dataLiveCaseCovid.setValue(allCaseCovid);
+        caseCovidRepository = CaseCovidRepository.getInstance(application);
     }
 
-    public MutableLiveData<List<CaseCovid>> getLiveDataCaseCovid(){
-        return dataLiveCaseCovid;
+    public void callData(){
+        caseCovidRepository.setData();
     }
-
-    public List<CaseCovid> getAllCaseCovid(){
-        return allCaseCovid;
+    public LiveData<List<DataCovid>> getData(){
+        return caseCovidRepository.getAllData();
     }
+//    public MutableLiveData<List<CaseCovid>> getLiveDataCaseCovid(){
+//        return dataLiveCaseCovid;
+//    }
+//
+//    public List<CaseCovid> getAllCaseCovid(){
+//        return allCaseCovid;
+//    }
 }

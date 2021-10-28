@@ -23,6 +23,10 @@ public class DataCovidViewModel extends AndroidViewModel {
     private DataCovid dataCovidById;
     private DataCovidBookmark bookmarkById;
 
+    public void getDataFromApi(){
+
+    }
+
     public DataCovidViewModel(@NonNull Application application) {
         super(application);
         dataCovidRepository = new DataCovidRepository(application);

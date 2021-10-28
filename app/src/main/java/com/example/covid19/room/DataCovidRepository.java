@@ -41,6 +41,8 @@ public class DataCovidRepository {
         allDataCovidBookmark = dataCovidDao.getAllDataCovidBookmark();
     }
 
+
+
     LiveData<List<DataCovid>> getAllDataCovid() {
         return allDataCovid;
     }

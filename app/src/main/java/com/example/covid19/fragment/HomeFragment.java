@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,6 +25,7 @@ import com.example.covid19.adapter.DataCovidClickableCallback;
 import com.example.covid19.model.CaseCovid;
 import com.example.covid19.room.DataCovid;
 import com.example.covid19.room.DataCovidViewModel;
+import com.example.covid19.service.data_covid.CaseCovidViewModel;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -31,8 +33,7 @@ import java.util.List;
 public class HomeFragment extends Fragment {
 
     private LiveData<List<DataCovid>> allDataCovid;
-    private DataCovidViewModel dataCovidViewModel;
-
+    private CaseCovidViewModel caseCovidViewModel;
     private CaseCovidAdapter adapter;
     private RecyclerView recyclerView;
 
@@ -40,20 +41,16 @@ public class HomeFragment extends Fragment {
         return new HomeFragment();
     }
 
-    private final DataCovidClickableCallback callback = new DataCovidClickableCallback() {
-        @Override
-        public void onClick(View view, DataCovid dataCovid) {
-            Intent intent = new Intent(requireActivity(), DetailActivity.class);
-            intent.putExtra("id_data", dataCovid.uid);
-            requireActivity().startActivity(intent);
-        }
+    private final DataCovidClickableCallback callback = (view, dataCovid) -> {
+        Intent intent = new Intent(requireActivity(), DetailActivity.class);
+        intent.putExtra("id_data", dataCovid.uid);
+        requireActivity().startActivity(intent);
     };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dataCovidViewModel = new ViewModelProvider(requireActivity()).get(DataCovidViewModel.class);
-
+        caseCovidViewModel = new ViewModelProvider(requireActivity()).get(CaseCovidViewModel.class);
     }
 
     @Override
@@ -72,9 +69,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        dataCovidViewModel.getAllDataCovid().observe(getViewLifecycleOwner(), dataCovids -> {
-            adapter.submitList(dataCovids);
-        });
-
+        caseCovidViewModel.getData().observe(getViewLifecycleOwner(), dataCovids -> adapter.submitList(dataCovids));
+        caseCovidViewModel.callData();
     }
 }
