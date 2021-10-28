@@ -44,13 +44,7 @@ public class CaseCovidRepository {
             public void onResponse(Call<List<CaseCovid>> call, Response<List<CaseCovid>> response) {
                 if (response.isSuccessful()) {
                     if (response.body() != null) {
-                        appDatabase.getQueryExecutor().execute(new Runnable() {
-                            @Override
-                            public void run() {
-                                dataCovidDao.insertAll(MappingDataCovid.getMapping(response.body()));
-                            }
-                        });
-
+                        appDatabase.getQueryExecutor().execute(() -> dataCovidDao.insertAll(MappingDataCovid.getMapping(response.body())));
                     }
                 }
             }

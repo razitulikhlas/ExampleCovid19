@@ -25,6 +25,8 @@ import com.example.covid19.util.HandleResponse;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 
+import java.util.Calendar;
+
 public class SignInFragment extends Fragment {
 
     private Button btnSignIn;
@@ -44,6 +46,10 @@ public class SignInFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        boolean isAllowed = SessionManagerUtil.getInstance().isSessionActive(requireActivity(), Calendar.getInstance().getTime());
+        if(isAllowed){
+            startMainActivity();
+        }
     }
 
     @Override
