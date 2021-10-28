@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border_item_data"
+    android:elevation="3dp"
+    android:id="@+id/container_data_covid"
+    android:padding="20dp"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/imgFlag"
+        android:layout_width="100dp"
+        android:layout_height="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ex_flag" />
+
+    <TextView
+        android:id="@+id/tvNegara"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="20dp"
+        android:text="INDONESIA"
+        android:textAlignment="textStart"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgFlag"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvBenua"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Asia"
+        android:textAlignment="textStart"
+        android:textStyle="italic"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/imgFlag"
+        app:layout_constraintTop_toBottomOf="@+id/tvNegara" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F6FF"
+    tools:context=".fragment.AccountFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="40dp"
+        android:background="@drawable/border_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/imgProfile"
+            android:src="@drawable/ic_android"
+            app:civ_circle_background_color="#CDCDCD"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/white"
+            app:layout_constraintStart_toStartOf="@id/container_profile"
+            app:layout_constraintTop_toTopOf="@id/container_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_profile"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvProfileUsername"
+            android:text="Username"
+            android:textColor="@color/white"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/imgProfile"
+            app:layout_constraintStart_toStartOf="@id/container_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_profile"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvProfileFullname"
+            android:text="Account Full Name"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textAlignment="center"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@id/tvProfileUsername"
+            app:layout_constraintStart_toStartOf="@id/container_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_profile"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/container_data_profile"
+        android:background="@drawable/border_item_data"
+        android:layout_margin="20dp"
+        android:padding="20dp"
+        android:elevation="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/container_profile">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv1"
+            android:drawableStart="@drawable/ic_email"
+            android:drawablePadding="10dp"
+            android:text="Email"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="@id/container_data_profile"
+            app:layout_constraintStart_toStartOf="@id/container_data_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_data_profile"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvDetailEmail"
+            android:drawablePadding="10dp"
+            android:text="syarief@gmail.com"
+            android:textSize="23sp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@id/tv1"
+            app:layout_constraintStart_toStartOf="@id/container_data_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_data_profile"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/div1"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailEmail"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv2"
+            android:drawableStart="@drawable/ic_acc_username"
+            android:drawablePadding="10dp"
+            android:text="Username"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/div1"
+            app:layout_constraintStart_toStartOf="@id/container_data_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_data_profile"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvDetailUsername"
+            android:text="syariefnoorp"
+            android:textSize="23sp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@id/tv2"
+            app:layout_constraintStart_toStartOf="@id/container_data_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_data_profile"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="10dp"
+            android:id="@+id/div2"
+            android:background="@color/black"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailUsername"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv3"
+            android:drawableStart="@drawable/ic_fullname"
+            android:drawablePadding="10dp"
+            android:text="Fullname"
+            android:textSize="23sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/div2"
+            app:layout_constraintStart_toStartOf="@id/container_data_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_data_profile"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvDetailFullname"
+            android:text="syarief noor permadi"
+            android:textSize="23sp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@id/tv3"
+            app:layout_constraintStart_toStartOf="@id/container_data_profile"
+            app:layout_constraintEnd_toEndOf="@id/container_data_profile"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/btnLogout"
+        android:backgroundTint="@color/main"
+        android:text="Logout"
+        android:drawableLeft="@drawable/ic_logout"
+        app:layout_constraintTop_toBottomOf="@id/container_data_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
